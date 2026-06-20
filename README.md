@@ -13,6 +13,13 @@ An advanced, high-performance practice and duels core for modern Minecraft PvP n
 
 ---
 
+## ⚠️ Terms of Use & Warning
+
+* **Intellectual Property:** You are strictly prohibited from re-uploading, distributing, or selling this plugin (or its modified source code) under your own name or as your own commercial product. 
+* **Usage:** You are free to modify the source code for personal use on your own server or network. However, public redistribution of altered versions claiming original authorship is a direct violation of the project's terms.
+
+---
+
 ## 🛠️ Project Structure
 
 ```text
@@ -26,12 +33,3 @@ An advanced, high-performance practice and duels core for modern Minecraft PvP n
 │   └── resources/          # Configuration files (config.yml, guis.yml, streak.yml)
 ├── build.gradle.kts        # Build dependency architecture
 └── gradlew                 # Gradle wrapper script
-
----
-
-## ⚠️ Terms of Use & Warning
-
-* **Intellectual Property:** You are strictly prohibited from re-uploading, distributing, or selling this plugin (or its modified source code) under your own name or as your own commercial product. 
-* **Usage:** You are free to modify the source code for personal use on your own server or network. However, public redistribution of altered versions claiming original authorship is a direct violation of the project's terms.
-
----
