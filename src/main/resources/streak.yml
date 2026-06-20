@@ -1,0 +1,39 @@
+# ==========================================
+# Killstreak & Dynamic Action Profiles File
+# ==========================================
+killstreaks:
+  storage:
+    type: "SQLite" # Set to "MySQL" or "SQLite" for data safety configurations
+    host: "localhost"
+    port: 3306
+    database: "ogduels"
+    table: "og_killstreaks"
+    username: "root"
+    password: ""
+  
+  leaderboard:
+    title: "&6&lTop 10 Killstreaks Leaderboard"
+    format: "&e#%pos% &b%player% &7- &a%score% Max Streak"
+
+  milestones:
+    5:
+      broadcast: "&7[&c&lSTREAK&7] &e%player% &7is on a &6&lDominating &7Kill Streak of &a%streak%&7!"
+      commands:
+        - "eco give %player% 100"
+        - "give %player% golden_apple 1"
+    10:
+      broadcast: "&7[&c&lSTREAK&7] &e%player% &7has achieved a &4&lMEGA STREAK &7of &a%streak% &7kills!"
+      commands:
+        - "eco give %player% 500"
+        - "give %player% diamond 2"
+        - "effect give %player% speed 30 1"
+    15:
+      broadcast: "&7[&c&lSTREAK&7] &4&l%player% IS UNSTOPPABLE! &c%streak% KILLS!"
+      commands:
+        - "eco give %player% 1000"
+        - "heal %player%"
+    20:
+      broadcast: "&7[&c&lSTREAK&7] &4&l%player% IS GODLIKE! KILLED &e%streak% &4&lPLAYERS IN A ROW!"
+      commands:
+        - "eco give %player% 2500"
+        - "bc &e%player% obtained the legendary tier drops!"

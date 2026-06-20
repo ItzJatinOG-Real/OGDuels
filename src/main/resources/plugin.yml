@@ -1,0 +1,32 @@
+name: OGDuels
+version: 1.0.0
+main: Itzjatinog.ogduels.OGDuels
+api-version: '1.21'
+author: ItzJatinOG
+description: A high-performance, minimalist 1v1 and party duels plugin.
+
+commands:
+  ogduels:
+    description: Main administrative and configuration command for setup.
+    permission: ogduels.admin
+    usage: /ogduels [reload|create|setspawn|savekit]
+    aliases: [oduels, duelsadmin]
+  join:
+    description: Open the duels arena selection interface or join the matchmaking queue.
+    usage: /join
+    aliases: [duel, playduel]
+  party:
+    description: Base interface command to manage, invite, or view your current duels party.
+    usage: /party
+    aliases: [p, team]
+  ffa:
+    description: Instant registration drop to unranked zones.
+    usage: /ffa
+  unranked:
+    description: Access the unranked arena map workspace.
+    usage: /unranked
+
+permissions:
+  ogduels.admin:
+    description: Allows access to all admin arena creation and setup features.
+    default: op

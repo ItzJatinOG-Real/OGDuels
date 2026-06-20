@@ -1,0 +1,80 @@
+# ======================================================
+# OGDuels GUI Interface Customization & Action Layout
+# ======================================================
+
+arenas-menu:
+  enabled: true
+  disabled-message: "§cThe Arenas selector is currently undergoing maintenance!"
+  title: "Arenas"
+  size: 27
+  item:
+    display-name: "§e%arena_display%"
+    click-action: "[TOGGLE_QUEUE]"
+    lore:
+      - "§7DUEL KIT"
+      - ""
+      - "§fIn Queue: §e%queue%"
+      - "§fIn Match: §e%in_match%"
+      - ""
+      - "§e§lCLICK §r§e➔ To Queue"
+  extra-items:
+    filler-glass:
+      material: "GRAY_STAINED_GLASS_PANE"
+      slot: 0
+      display-name: " "
+      lore: []
+    info-book:
+      material: "BOOK"
+      slot: 4
+      display-name: "§b§lDuel Rules"
+      lore:
+        - "§7No hacking or cross-teaming."
+        - "§7Map resets instantly on end."
+
+party-menu:
+  enabled: true
+  disabled-message: "§cThe Party System is temporarily offline."
+  title: "§8Party Management Profile"
+  size: 27
+  items:
+    profile:
+      slot: 10
+      material: "BOOK"
+      display-name: "§eYour Active Profile"
+      click-action: "[CLOSE]"
+      lore-solo:
+        - "§7Status: Solo Wanderer"
+      lore-party:
+        - "§aStatus: In a Party"
+        - "§7Role: %role%"
+    invite:
+      slot: 13
+      material: "PLAYER_HEAD"
+      display-name: "§aInvite Active Online Players"
+      click-action: "[OPEN_GUI] invite-players-menu"
+      lore:
+        - "§7Click to view online users"
+        - "§7and dispatch instant requests."
+    pending:
+      slot: 16
+      material: "WRITABLE_BOOK"
+      display-name: "§bReview Pending Invites"
+      click-action: "[COMMAND] party accept"
+      lore-has-invite:
+        - "§7From: §e%sender%"
+        - "§a§lCLICK HERE TO ACCEPT"
+      lore-no-invite:
+        - "§7No invitations available currently."
+
+invite-players-menu:
+  enabled: true
+  disabled-message: "§cPlayer invite menus are currently locked."
+  title: "§8Invite Active Players"
+  size: 36
+  player-item:
+    material: "PLAYER_HEAD"
+    display-name: "§f%player%"
+    click-action: "[COMMAND] party invite %player%"
+    lore:
+      - "§7Click to transmit an immediate"
+      - "§7party invitation sequence."

@@ -1,0 +1,181 @@
+# ========================================================
+#                OGDuels Global Engine Config
+# ========================================================
+
+prefix: "<gray>[<gradient:#00c6ff:#0072ff><bold>OGDuels</bold></gradient>]<gray> "
+
+messages:
+  # System Errors & Permissions
+  no-permission: "<red>Execution dropped: You lack admin permissions.</red>"
+  only-players: "<red>Execution dropped: This command maps strictly to active players.</red>"
+  unknown-command: "<red>Unknown command. Use <yellow>/ogduels</yellow> to view available administrative options.</red>"
+  config-reloaded: "<green>Configuration structural fields and GUI menus successfully reloaded.</green>"
+  
+  # Arena Setup Feedback
+  pos-set: "<green>Successfully configured <yellow>{position}</yellow> for arena '<white>{arena}</white>'.</green>"
+  spawn-set: "<green>Successfully configured spawn marker <yellow>{num}</yellow> for arena '<white>{arena}</white>'.</green>"
+  kit-saved: "<green>Successfully saved your active layout profile as the default kit for arena '<white>{arena}</white>'.</green>"
+  arena-saved: "<green>System validation complete: Arena '<white>{arena}</white>' committed cleanly to storage.</green>"
+  arena-deleted: "<red>System modification complete: Arena '<white>{arena}</white>' purged from registry.</red>"
+  arena-incomplete: "<red>Validation failure: Ensure pos1, pos2, spawn1, spawn2, and kit are fully configured first.</red>"
+  
+  # Match Lifecycle Logs
+  match-started: "<green>Match parameters initialized! Commencing countdown sequence...</green>"
+  match-ended: "<gradient:#00c6ff:#0072ff><bold>Match Over</bold></gradient> <gray>» Inventories cleared and original loadouts safely restored.</gray>"
+  lobby-teleport: "<green>Teleporting back directly to the practice spawn lobby.</green>"
+  
+  # Social & Party System Messaging
+  friend-request-sent: "<green>Friend request dispatched cleanly to <yellow>{player}</yellow>.</green>"
+  friend-request-received: "<gradient:#00c6ff:#0072ff>{player}</gradient> <gray>sent you a friend request! Use the social GUI to accept.</gray>"
+  friend-added: "<green>Social connection established! You are now friends with <yellow>{player}</yellow>.</green>"
+  friend-online: "<gradient:#00c6ff:#0072ff><bold>Friend Online</bold></gradient> <gray>» <yellow>{player}</yellow> has stepped into the lobby environment.</gray>"
+  party-invite-sent: "<green>Party invitation sent to <yellow>{player}</yellow>.</green>"
+  party-invite-received: "<gray>You have been invited to join <gradient:#00c6ff:#0072ff>{player}'s</gradient> party.</gray>"
+
+# ========================================================
+#            Dynamic User Interface Customizer
+# ========================================================
+# Slot Layout Map (0-indexed):
+#  0  1  2  3  4  5  6  7  8
+#  9 10 11 12 13 14 15 16 17
+# 18 19 20 21 22 23 24 25 26... etc.
+
+guis:
+  # ------------------------------------------------------
+  # 1. Main Duels & Matchmaking Menu
+  # ------------------------------------------------------
+  main-menu:
+    title: "<dark_gray>OGDuels » Select Match"
+    size: 27
+    filler:
+      material: "GRAY_STAINED_GLASS_PANE"
+      name: " "
+    items:
+      unranked:
+        material: "IRON_SWORD"
+        slot: 11
+        name: "<gradient:#00c6ff:#0072ff><bold>Unranked Duel</bold></gradient>"
+        lore:
+          - "<gray>Casual match practice environment.</gray>"
+          - ""
+          - "<gray>Active Pools: <white>No Elo adjustments</white></gray>"
+          - "<action:click><b><yellow>Click to view active maps</yellow></b></action:click>"
+      ranked:
+        material: "DIAMOND_SWORD"
+        slot: 13
+        name: "<gradient:#ff416c:#ff4b2b><bold>Ranked Competitive</bold></gradient>"
+        lore:
+          - "<gray>High stakes competitive pairing.</gray>"
+          - ""
+          - "<gray>Affects: <white>Global Competitive Elo Rating</white></gray>"
+          - "<action:click><b><yellow>Click to enter matchmaking queue</yellow></b></action:click>"
+      leaderboards:
+        material: "EMERALD"
+        slot: 15
+        name: "<gradient:#11998e:#38ef7d><bold>Global Leaderboards</bold></gradient>"
+        lore:
+          - "<gray>View top players across the server.</gray>"
+          - ""
+          - "<action:click><b><yellow>Click to inspect rankings</yellow></b></action:click>"
+
+  # ------------------------------------------------------
+  # 2. Party Management GUI
+  # ------------------------------------------------------
+  party-menu:
+    title: "<dark_gray>Party Management Hub"
+    size: 27
+    filler:
+      material: "GRAY_STAINED_GLASS_PANE"
+      name: " "
+    items:
+      disband:
+        material: "BARRIER"
+        slot: 10
+        name: "<red><b>Disband Party</b></red>"
+        lore:
+          - "<gray>Instantly dissolve the active party.</gray>"
+          - "<gray>All members will be disconnected.</gray>"
+      friends-invite:
+        material: "PLAYER_HEAD"
+        slot: 13
+        name: "<gradient:#00c6ff:#0072ff><b>Invite Friends</b></gradient>"
+        lore:
+          - "<gray>Opens your friends navigation UI to</gray>"
+          - "<gray>send instant active party invitations.</gray>"
+          - ""
+          - "<action:click><b><yellow>Click to view friends</yellow></b></action:click>"
+      leave:
+        material: "OAK_DOOR"
+        slot: 16
+        name: "<red><b>Leave Party</b></red>"
+        lore:
+          - "<gray>Exit your current party group.</gray>"
+
+  # ------------------------------------------------------
+  # 3. Friends Registry & Social GUI
+  # ------------------------------------------------------
+  friends-menu:
+    title: "<dark_gray>Social Relations & Friends"
+    size: 54
+    filler:
+      material: "GRAY_STAINED_GLASS_PANE"
+      name: " "
+    items:
+      # Navigation tools fixed on the bottom row
+      add-friend:
+        material: "ANVIL"
+        slot: 48
+        name: "<green><b>Send Friend Request</b></green>"
+        lore:
+          - "<gray>Type a target player name to send</gray>"
+          - "<gray>a modern social link request.</gray>"
+      pending-requests:
+        material: "BOOK"
+        slot: 50
+        name: "<yellow><b>Pending Invites</b></yellow>"
+        lore:
+          - "<gray>Click to view incoming friend</gray>"
+          - "<gray>and duel applications.</gray>"
+    # Dynamic settings for heads rendered inside slots 0-44 representing friends
+    friend-head:
+      name: "<gradient:#00c6ff:#0072ff><b>{player}</b></gradient>"
+      lore-online:
+        - "<green>● Online</green>"
+        - ""
+        - "<gray>Left-Click » <yellow>Send Party Invitation</yellow></gray>"
+        - "<gray>Right-Click » <yellow>Send Direct Duel Challenge</yellow></gray>"
+      lore-offline:
+        - "<red>○ Offline</red>"
+        - ""
+        - "<dark_gray>Options restricted until player connects.</dark_gray>"
+
+  # ------------------------------------------------------
+  # 4. Pending Applications & Invites Sub-Menu
+  # ------------------------------------------------------
+  invites-menu:
+    title: "<dark_gray>Pending Verification Queue"
+    size: 27
+    filler:
+      material: "GRAY_STAINED_GLASS_PANE"
+      name: " "
+    items:
+      accept-all:
+        material: "LIME_DYE"
+        slot: 11
+        name: "<green><b>Accept All Requests</b></green>"
+        lore:
+          - "<gray>Flushes queue by confirming all</gray>"
+          - "<gray>incoming connections.</gray>"
+      deny-all:
+        material: "RED_DYE"
+        slot: 15
+        name: "<red><b>Clear / Deny All Requests</b></red>"
+        lore:
+          - "<gray>Purge all pending session entries.</gray>"
+
+# ========================================================
+#                Internal DB Arena Flat-File Cache
+# ========================================================
+# Populated automatically via commands:
+# /ogduels pos1/pos2, /ogduels setspawn, /ogduels savekit
+arenas: {}
